@@ -1,0 +1,36 @@
+#Bootstrap
+app/bootstrap*
+
+#Config
+app/config/parameters.yml
+app/config/parameters.ini
+app/config/config.yml
+app/config/config_dev.yml
+app/config/config_prod.yml
+app/config/config_test.yml
+app/config/nifty_authorize_acct.txt
+
+#Symfony Directories
+web/bundles/
+*/cache/*
+*/logs/*
+vendor/*
+bin/*
+/composer.phar
+
+# Images directory
+web/images/*
+web/Public/*
+web/User/*
+backup/*
+*~
+
+#Random files that I don't know what they are but I'm afraid to delete.
+UPGRADE-2.2.md
+UPGRADE.md
+em
+no
+okl6h5q.html
+tmptest.txt
+unitTestTODO.txt
+

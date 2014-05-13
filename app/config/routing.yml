@@ -1,0 +1,101 @@
+nifty_thrifty_shop:
+    resource: "@NiftyThriftyShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#The Silly dynamic routes do not redirect, they just call the proper function.
+SillyCollectionRoute:
+    pattern: /Collections/Sale/Id/{slug}.sls
+    defaults: {_controller: NiftyThriftyShopBundle:Shop:showSingleCollection}
+
+SillyProductRoute:
+    pattern: /Collections/Product/Id/{slug}.sls
+    defaults: {_controller: NiftyThriftyShopBundle:Shop:showSingleItem}
+
+SillyCategoryRoute:
+    pattern: /Collections/Archive/Category/{slug}.sls
+    defaults: {_controller: NiftyThriftyShopBundle:Shop:showCategoryItems}
+
+SillyTagRoute:
+    pattern: /Collections/Archive/Tag/{slug}.sls
+    defaults: {_controller: NiftyThriftyShopBundle:Shop:showTagItems}
+
+SillyInvites:
+    pattern: /Collections/Home/User/Register/UserInvitation/{inviteToken}.sls
+    defaults: {_controller: NiftyThriftyShopBundle:User:userRegisterFriendInvitationForm}
+
+SillySales:
+    pattern: /Collections/Archive/Search/under35.sls
+    defaults: {_controller: NiftyThriftyShopBundle:Search:getItemsByValue, itemValue: under-35}
+
+#These are redirect routes without dynamic content
+Under35Route:
+    pattern: /search/under-35
+    defaults:
+        _controller: Bundle:Controller:action
+
+SillyUnder35Route:
+    pattern: /Collections/Archive/Search/under35.sls
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: Under35Route
+        permanent: true
+
+FirstRoute:
+  pattern: /content/home
+  defaults:
+      _controller: Bundle:Controller:action
+
+SecondRoute:
+  pattern: /Collections/Home.sls
+  defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: FirstRoute
+      permanent: true
+
+UserInviteSymRoute:
+  pattern: /user/invite_friend
+  defaults:
+      _controller: Bundle:Controller:action
+
+UserInviteSillyRoute:
+  pattern: /User/Invite.sls
+  defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: UserInviteSymRoute
+      permanent: true
+
+CollectionSplashSymRoute:
+  pattern: /shop/collections
+  defaults:
+      _controller: Bundle:Controller:action
+
+CollectionSplashSillyRoute:
+  pattern: /Collections/Sale.sls
+  defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: CollectionSplashSymRoute
+      permanent: true
+
+ShopSplashSymRoute:
+  pattern: /shop/shops
+  defaults:
+      _controller: Bundle:Controller:action
+
+ShopSplashSillyRoute:
+  pattern: /Collections/Shop.sls
+  defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: ShopSplashSymRoute
+      permanent: true
+
+LookbookSplashSymRoute:
+  pattern: /shop/lookbook
+  defaults:
+      _controller: Bundle:Controller:action
+
+LookbookSplashSillyRoute:
+  pattern: /Collections/LookBook.sls
+  defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: LookbookSplashSymRoute
+      permanent: true

@@ -1,0 +1,73 @@
+security:
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        # Public login/registration area.
+        #public_login:
+            #pattern:    ^/login$|register.*$|recover.*$|content.*$|show_item.*$|share.*$|invitation.*$|/$
+         #   pattern:    ^/login$|register.*$|recover.*$
+          #  anonymous:  ~
+            # Context is shared so a registered user can be automatically logged in.
+           # context:    registration
+        #Updated security: allow the entire site, enforce login requirements via javascript instead of symfony.
+        all_nifty:
+            pattern: ^/
+            anonymous: ~
+            form_login:
+                login_path:             login
+                check_path:             login_check
+                username_parameter:     userEmail
+                password_parameter:     userPassword
+                use_referer:            true
+                default_target_path:    /
+                failure_path:           login
+                remember_me:            true
+            logout:
+                path:   logout
+                target: /
+            remember_me:
+                key:                    El1Mann1n3
+                always_remember_me:     true
+                remember_me_parameter:  _remember_me
+            # Context is shared so a registered user can be automatically logged in.
+            context:    registration
+        #single_public_views:
+        #    pattern:    ^/content.*$|show_item.*$|share.*$|invitation.*$|/$
+        #    anonymous:  ~
+
+
+    encoders:
+        NiftyThrifty\ShopBundle\Entity\User: 
+            algorithm:          sha1
+            encode_as_base64:   false
+            iterations:         1
+
+    providers:
+        main:
+            entity: { class: NiftyThrifty\ShopBundle\Entity\User, property: userEmail }
+    
+    # Admin users are for the "back-office" section.
+    role_hierarchy:
+        ROLE_ADMIN:  ROLE_USER
+
+    #Logging in, logging out, registering, and recovering passwords are allowed to anonymous users.
+    #User personal information requires full authentication
+    #Admin panel requires the admin role
+    #Checking out requires full login.
+    access_control:
+        - { path: ^/login,                  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/logout,                 roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/recover,           roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/recover_password,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/register,          roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/register_user,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/share,             roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/invitation,        roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/unlove_item,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/love_item,         roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/things_i_love,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin,                  roles: ROLE_ADMIN }
+        - { path: ^/checkout,               roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/checkout,               roles: ROLE_USER, requires_channel: https }
+        - { path: ^/user,                   roles: IS_AUTHENTICATED_FULLY }

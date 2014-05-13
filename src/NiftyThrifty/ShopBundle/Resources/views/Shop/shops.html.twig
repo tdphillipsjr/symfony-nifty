@@ -1,0 +1,52 @@
+{% extends 'NiftyThriftyShopBundle::layout.html.twig' %}
+
+{% block page_heading %}Nifty Thrifty - Rare Finds Everyday{% endblock %}
+
+{% block page_content %}
+
+	<div class="splash_header">
+		Welcome to the Shops
+	</div>
+
+	<div class="splash_subheader">
+		Finding your favorite vintage item just got easier. Whether it's the perfect pair of cutoffs, or a killer LBD you're searching for,<br/>our expertly curated NT shops have hundreds of the most iconic vintage styles out there.
+	</div>
+
+	<div class="clear"></div>
+
+	<div class="shop_left">
+		<div class="shop_left_top">
+			Shop our basic vintage staples
+			<div class="clear"></div>
+		</div>
+            {% for category in categories %}
+		<div class="shop_left_cell" style="text-transform:uppercase;">
+			<a href="/shop/category/{{category.getId}}">{{category.getName}}</a>
+			<div class="clear"></div>
+		</div>
+            {% endfor %}
+	</div>
+	
+	<div class="shop_centerline">
+	
+	</div>
+	<div class="shop_right">
+    {% if collections|length > 0 %}
+            {% for collection in collections %}
+			<div class="current_cell" style="background:url('/{{collection.getCollectionVisualMainPanel}}') top left no-repeat;">
+				<a href="{{ path('show_collection', {'slug': collection.getCollectionName|slugify}) }}-{{ collection.getId }}" title="{{collection.getCollectionName}}" class="top">
+				</a>
+				<div class="current_cell_bar current_cell_bar_shop">
+					<a href="{{ path('show_collection', {'slug': collection.getCollectionName|slugify}) }}-{{ collection.getId }}" title="{{collection.getCollectionName}}">
+					{{collection.getCollectionName}}
+					</a>
+				</div>
+			</div>
+            {% endfor %}
+    {% endif %}
+		<div class="clear"></div>
+	
+	</div>
+
+
+{% endblock %}

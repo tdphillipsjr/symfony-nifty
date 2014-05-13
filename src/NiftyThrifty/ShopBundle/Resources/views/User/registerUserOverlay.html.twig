@@ -1,0 +1,485 @@
+<script type="text/javascript">
+var _fbAppId = '297949530277661';
+var _fbChannelUrl = 'http://www.niftythrifty.com/channel.html';
+var _json_url = 'https://www.niftythrifty.com/Home/Json.sls';
+</script>
+
+<div id="user_registration" style="margin:0 auto;width:800px;height:450px;display:none;">
+	<a href="#" title="Close" id="close_register" style="display: block;height: 32px;float:right;width: 32px;background: url('/bundles/niftythriftyshop/Img/nifty_box_close.png') top left no-repeat;"></a>
+	<h1 id="reg_form_h1">
+		Signup with your email address
+	</h1>
+    {{ form_start(editForm) }}
+			<div class="left">
+				<div class="row">
+					<label for="user_first_name" id="user_first_name_label">
+						First name:
+					</label>
+					<div class="input_gen" id="user_first_name_div3">
+						<div class="input_gen_left"></div>
+						<div class="input_gen_middle">
+							{{ form_row(editForm.userFirstName) }}
+						</div>
+						<div class="input_gen_right"></div>
+					</div>
+				</div>
+				<div class="row">
+					<label for="user_last_name" id="user_last_name_label">
+						Last name:
+					</label>
+					<div class="input_gen" id="user_last_name_div3">
+						<div class="input_gen_left"></div>
+						<div class="input_gen_middle">
+							{{ form_row(editForm.userLastName) }}
+						</div>
+						<div class="input_gen_right"></div>
+					</div>
+				</div>
+				<div class="row">
+					<label for="user_email" id="user_email_label">
+						E-mail:
+					</label>
+					<div class="input_gen" id="user_email_div3">
+						<div class="input_gen_left"></div>
+						<div class="input_gen_middle">
+							{{ form_row(editForm.userEmail) }}
+
+						</div>
+						<div class="input_gen_right"></div>
+					</div>
+				</div>
+				<div class="row" style="margin-top:50px;">
+					<h1>Or, register with Facebook</h1>
+					<span href="#" id="fb-register" name="fb_register_btn" title="Fill registration fields with Facebook" style="float:left;">
+						<img src="/images/images/registerwithfacebookbtn.png">
+					</span>
+				</div>
+
+
+
+
+
+
+
+
+
+			</div>
+			<div class="right">
+				<div class="row">
+					<label for="user_password">
+						Password:
+					</label>
+					<div class="input_gen" id="user_password1_div3">
+						<div class="input_gen_left"></div>
+						<div class="input_gen_middle">
+							{{ form_row(editForm.userPassword['first']) }}
+						</div>
+						<div class="input_gen_right"></div>
+					</div>
+				</div>
+				<div class="row">
+					<label for="user_password2">
+						Retype password:
+					</label>
+					<div class="input_gen" id="user_password2_div3">
+						<div class="input_gen_left"></div>
+						<div class="input_gen_middle">
+							{{ form_row(editForm.userPassword['second']) }}
+						</div>
+						<div class="input_gen_right"></div>
+					</div>
+					<div class="clear"></div>
+					<a href="#" title="Sign in" class="sign_in" style="text-align:right;margin-right:17px;">
+						Already member? <span>Sign in</span>
+					</a>
+				</div>
+				<div class="clear"></div>
+				            {{ form_row(editForm.inviteToken) }}
+				            {{ form_row(editForm.tokenType) }}
+				            {{ form_row(editForm.referSite) }}
+    {{ form_end(editForm) }}
+
+				<br />
+				<br />
+				<br />
+				<a href="{{ path('nifty_thrifty_content', {'slug': 'terms-of-use'}) }}" target="_blank" class="sign_in">
+					By registering, you are agreeing to the terms of our <span>privacy policy</span>.
+				</a>
+				<br />
+				
+			</div>
+			</form>
+	<div class="clear"></div>
+</div>
+<style>
+
+div.curatesteps{
+	width:990px;
+	height:700px;
+	padding:60px;
+	padding-top:20px;
+	margin:0 auto;
+	display:block;
+	background:url('/images/images/skipburstbottomright.png') bottom right no-repeat #ffffff;
+}
+
+div.curatesteps h1{
+	font-size:42px;
+	font-family: 'UniversLTStd-BoldCn';
+	text-align:center;
+}
+
+div.curatesteps h3{
+	font-family: 'Conv_Univers45Light';
+	font-size:10px;
+	text-transform:uppercase;
+	text-align:center;
+}
+
+img.mylookscontinuebtn{
+	cursor:pointer;
+}
+
+div.greyline{
+	width:100%;
+	height:1px;
+	background:#ebebeb;
+	display:block;
+}
+
+div.mylookschoicerowlarge{
+	height:360px;
+	width:100%;
+}
+
+div.mylookseach{
+	width:300px;
+	margin-right:20px;
+	float:left;
+	font-family: 'Volkorn-Italic',serif;
+	color:#7f7f7f;
+	font-size:15px;
+}
+
+div.mylookseach p{
+	margin-top:5px;
+	font-size:14px;
+	letter-spacing:1px;
+}
+
+div.mylookseachbox{
+	width:300px;
+	height:300px;
+	display:block;
+	border:1px solid #ebebeb;
+	cursor:pointer;
+}
+
+div.mylookseach div.selected{
+	border:1px solid #ff7070;
+	background:url('/images/images/bottomrightpinktriangle.png') bottom right no-repeat;
+}
+
+div.mylookseachbox:hover{
+	border:1px solid #ff7070;
+	background:url('/images/images/bottomrightpinktriangle.png') bottom right no-repeat;
+}
+
+
+div.mylooksnumberrow{
+	width:100%;
+	height:60px;
+}
+
+div.mylooksnumberrowimg{
+	width:40px;
+	height:60px;
+	display:block;
+	float:left;
+}
+
+div.mylooksnumberrowheader{
+	font-family: 'Conv_Univers45Light';
+	font-size:24px;
+	float:left;
+	width:950px;
+	padding-top:10px;
+	height:25px;
+}
+
+div.mylooksnumberrowsub{
+	width:950px;
+	height:20px;
+	letter-spacing:1.5px;
+	font-family: 'Volkorn-Italic',serif;
+	color:#7f7f7f;
+	font-size:14px;
+}
+
+div.mylooksgoback{
+	color:#000000;
+}
+
+div.mylooksgoback a{
+	color:#000000;
+	text-decoration:none;
+}
+
+div.mylooksgoback a:hover{
+	color:#ff7070;
+	text-decoration:underline;
+}
+
+div.mylookschoicerow{
+	width:100%;
+	display:block;
+	height:100px;
+}
+
+
+div.mylookschoicebox{
+	width:100px;
+	height:38px;
+	display:block;
+	margin:12px;
+	border:1px solid #ebebeb;
+	float:left;
+	text-align:center;
+	padding-top:12px;
+	cursor:pointer;
+}
+
+div.mylookschoicerow div.selected{
+	border:1px solid #ff7070;
+	background:url('/images/images/bottomrightpinktriangle.png') bottom right no-repeat;
+}
+
+div.mylookschoicebox:hover{
+	border:1px solid #ff7070;
+	background:url('/images/images/bottomrightpinktriangle.png') bottom right no-repeat;
+}
+
+
+
+</style>
+
+
+<script>
+window.addEvent('domready', function(){
+
+	var currentstep = 1;
+	
+	function changebonus(step){
+		$('registerbonus1').setStyle('display','none');
+		$('registerbonus2').setStyle('display','none');
+		$('registerbonus3').setStyle('display','none');
+		$('registerbonus4').setStyle('display','none');
+		var activeelementid = "registerbonus"+step;
+		var activeelement = $(activeelementid);
+		activeelement.setStyle('display','block');
+	}
+
+	$$('div.mylookseachbox').addEvent('click', function(e){
+		var clickediddiv = e.target.id;
+		var activeelement = $(clickediddiv);
+		if(activeelement.hasClass('selected')){
+			activeelement.removeClass('selected');
+		}
+		else{
+			activeelement.addClass('selected');
+		}
+	});
+
+	$$('img.mylookscontinuebtn').addEvent('click', function(e){
+		var steptogoto = currentstep+1;
+		changebonus(steptogoto);
+		currentstep++;
+	});
+
+	$$('a.mylooksgobacklink').addEvent('click', function(e){
+		var steptogoto = currentstep-1;
+		changebonus(steptogoto);
+		currentstep--;
+	});
+
+	$$('div.mylookschoicebox').addEvent('click', function(e){
+		var clickediddiv = e.target.id;
+		var activeelement = $(clickediddiv);
+		if(activeelement.hasClass('selected')){
+			activeelement.removeClass('selected');
+		}
+		else{
+			activeelement.addClass('selected');
+		}
+	});
+
+
+});
+</script>
+
+<div id="registerbonus" style="margin:0 auto;display:none;">
+	<div id="registerbonus1" class="curatesteps" style="display:block;">
+		<h1>LET US CURATE FOR YOU!</h1>
+		<h3>Rare, unique and now, personalized, vintage finds.</h3>
+		<h3>Complete your style profile to discover a curated collection  that's all your own. </h3>
+		<div class="greyline" style="margin-top:20px; margin-bottom:15px;"></div>
+		<div class="mylooksnumberrow">
+			<div class="mylooksnumberrowimg">
+				<img src="/images/images/pinksquare_1.png">
+			</div>
+			<div class="mylooksnumberrowheader">
+				MY IDEAL EVERYDAY LOOK IS:
+			</div>
+			<div class="mylooksnumberrowsub">
+				Select one or more.
+			</div>
+		</div>
+		<div class="mylookschoicerowlarge">
+			<div class="mylookseach" style="background:url('/images/images/mylooks_day1.jpg') top left no-repeat;">
+				<div id="day1" class="mylookseachbox"></div>
+				<p>98% of your wardrobe can be described as flowy, the other 2%- platform.</p>
+			</div>
+			<div class="mylookseach" style="background:url('/images/images/mylooks_day2.jpg') top left no-repeat;">
+				<div id="day2" class="mylookseachbox"></div>
+				<p>Thread-bare tees are the answer to everything and black is always the new black.</p>
+			</div>
+			<div class="mylookseach" style="background:url('/images/images/mylooks_day3.jpg') top left no-repeat;">
+				<div id="day3" class="mylookseachbox"></div>
+				<p>Boys in blazers make you swoon, as do sweater sets and peter pan collars.</p>
+			</div>
+		
+		</div>
+		<div class="greyline"></div>
+		<div class="mylooksgoback">
+			<!--<a href="#" class="mylooksgobacklink">< Go back</a>-->
+		</div>
+		<div style="width:100%;text-align:center;padding-top:20px;">
+			<img class="mylookscontinuebtn" id="step1" src="/images/images/chooselookscontinuebtn.png"><br><br>
+			<img src="/images/images/bottomdots_1.png">
+		</div>
+	</div>
+	<div id="registerbonus2" class="curatesteps" style="display:none;">
+		<h1>LET US CURATE FOR YOU!</h1>
+		<h3>Rare, unique and now, personalized, vintage finds.</h3>
+		<h3>Complete your style profile to discover a curated collection  that's all your own. </h3>
+		<div class="greyline" style="margin-top:20px; margin-bottom:15px;"></div>
+		<div class="mylooksnumberrow">
+			<div class="mylooksnumberrowimg">
+				<img src="/images/images/pinksquare_2.png">
+			</div>
+			<div class="mylooksnumberrowheader">
+				MY PERFECT EVENING LOOK IS:
+			</div>
+			<div class="mylooksnumberrowsub">
+				Select one or more.
+			</div>
+		</div>
+		<div class="mylookschoicerowlarge">
+			<div class="mylookseach" style="background:url('/images/images/mylooks_night1.jpg') top left no-repeat;">
+				<div id="night1" class="mylookseachbox"></div>
+				<p>You'll wear kitten heels and have a dirty martini, please.</p>
+			</div>
+			<div class="mylookseach" style="background:url('/images/images/mylooks_night2.jpg') top left no-repeat;">
+				<div id="night2" class="mylookseachbox"></div>
+				<p>You hoard turquoise jewelry and love anything with fringe. </p>
+			</div>
+			<div class="mylookseach" style="background:url('/images/images/mylooks_night3.jpg') top left no-repeat;">
+				<div id="night3" class="mylookseachbox"></div>
+				<p>To you, Kate Moss is Boss and smudgy eyeliner is perfection.</p>
+			</div>
+		
+		</div>
+		<div class="greyline"></div>
+		<div class="mylooksgoback">
+			<a href="#" class="mylooksgobacklink">< Go back</a>
+		</div>
+		<div style="width:100%;text-align:center;padding-top:20px;">
+			<img class="mylookscontinuebtn" id="step1" src="/images/images/chooselookscontinuebtn.png"><br><br>
+			<img src="/images/images/bottomdots_2.png">
+		</div>
+	</div>
+	<div id="registerbonus3" class="curatesteps" style="display:none;">
+		<h1>LET US CURATE FOR YOU!</h1>
+		<h3>Rare, unique and now, personalized, vintage finds.</h3>
+		<h3>Complete your style profile to discover a curated collection  that's all your own. </h3>
+		<div class="greyline" style="margin-top:0px; margin-bottom:5px;"></div>
+		<div class="mylooksnumberrow">
+			<div class="mylooksnumberrowimg">
+				<img src="/images/images/pinksquare_3.png">
+			</div>
+			<div class="mylooksnumberrowheader">
+				AGE RANGE:
+			</div>
+			<div class="mylooksnumberrowsub">
+			</div>
+		</div>
+		<div class="mylookschoicerow">
+			<div id="age1" class="mylookschoicebox">-18</div>
+			<div id="age2" class="mylookschoicebox">19-25</div>
+			<div id="age3" class="mylookschoicebox">26-35</div>
+			<div id="age4" class="mylookschoicebox">36-45</div>
+			<div id="age5" class="mylookschoicebox">46+</div>
+		</div>
+		<div class="greyline" style="margin-top:0px; margin-bottom:5px;"></div>
+		<div class="mylooksnumberrow">
+			<div class="mylooksnumberrowimg">
+				<img src="/images/images/pinksquare_4.png">
+			</div>
+			<div class="mylooksnumberrowheader">
+				DRESS SIZE:
+			</div>
+			<div class="mylooksnumberrowsub">
+				All our garments are measured and marqued to our size chart.
+			</div>
+		</div>
+		<div class="mylookschoicerow">
+			<div id="dress1" class="mylookschoicebox">XS-S</div>
+			<div id="dress2" class="mylookschoicebox">S-M</div>
+			<div id="dress3" class="mylookschoicebox">M-L</div>
+			<div id="dress4" class="mylookschoicebox">L-XL</div>
+			<div id="dress5" class="mylookschoicebox">OS</div>
+		</div>
+		<div class="greyline" style="margin-top:0px; margin-bottom:5px;"></div>
+		<div class="mylooksnumberrow">
+			<div class="mylooksnumberrowimg">
+				<img src="/images/images/pinksquare_5.png">
+			</div>
+			<div class="mylooksnumberrowheader">
+				SHOE SIZE:
+			</div>
+			<div class="mylooksnumberrowsub">
+			</div>
+		</div>
+		<div class="mylookschoicerow">
+			<div id="shoe1" class="mylookschoicebox">5&frac12;-6</div>
+			<div id="shoe2" class="mylookschoicebox">6&frac12;-7</div>
+			<div id="shoe3" class="mylookschoicebox">7&frac12;-8</div>
+			<div id="shoe4" class="mylookschoicebox">8&frac12;-9</div>
+			<div id="shoe5" class="mylookschoicebox">9&frac12;-10</div>
+			<div id="shoe6" class="mylookschoicebox">10&frac12;-11</div>
+			<div id="shoe7" class="mylookschoicebox">11&frac12;+</div>
+		</div>
+		<div class="greyline" style="margin-top:0px; margin-bottom:5px;"></div>
+		<div class="mylooksgoback">
+			<a href="#" class="mylooksgobacklink">< Go back</a>
+		</div>
+		<div style="width:100%;text-align:center;padding-top:20px;">
+			<img class="mylookscontinuebtn" id="step1" src="/images/images/chooselookscontinuebtn.png"><br><br>
+			<img src="/images/images/bottomdots_3.png">
+		</div>
+	</div>
+	<div id="registerbonus4" class="welcome_overlay" style="display:none;">
+		<div class="welcome_overlay_top">
+			<h1>Welcome to Nifty Thrifty!</h1>
+			<h3>ENJOY RARE VINTAGE FINDS. EVERYDAY</h3>
+		</div>
+		<div class="welcome_overlay_bottom">
+			<h2>BECOME A FAN ON FACEBOOK</h2>
+			<h4>AND GET <span style="color:#ff7070;">35% OFF</span> YOUR</h4>
+			<h4>FIRST PURCHASE</h4>
+			<div class="fb-like" data-href="https://www.facebook.com/Niftythriftyvintage" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" style="padding-right:10px;overflow:hidden;"></div>
+			<br><br>
+			<a href="/"><img src="/images/images/registerbonusstartshop.png" border="0" /></a>
+		</div>
+	</div>
+</div>
